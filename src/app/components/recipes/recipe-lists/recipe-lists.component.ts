@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-lists.component.css']
 })
 export class RecipeListsComponent {
-
+  recipes = []
 }
