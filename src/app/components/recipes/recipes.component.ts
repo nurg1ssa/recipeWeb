@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Recipe } from './recipes.model';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,9 +9,10 @@ import { Recipe } from './recipes.model';
 })
 export class RecipesComponent {
   selectedRecipe: Recipe
-
-  clickedRecipe(recipe: Recipe){
-    this.selectedRecipe = recipe
-    console.log('recipes got the data' + recipe)
+  constructor(private recipeService: RecipeService){
+     this.recipeService.recipeSelected.subscribe(
+        recipe => this.selectedRecipe = recipe
+     )
   }
+  
 }

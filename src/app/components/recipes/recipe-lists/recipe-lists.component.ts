@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipe } from '../recipes.model';
 import { RecipeService } from '../recipe.service';
 
@@ -12,10 +12,5 @@ export class RecipeListsComponent {
 
   constructor(private recipeService: RecipeService){
     this.recipes = this.recipeService.getRecipes()
-  }
-  @Output() selectedRecipe = new EventEmitter<Recipe>()
-
-  clickedRecipe(recipe: Recipe){
-    this.selectedRecipe.emit(recipe)
   }
 }
