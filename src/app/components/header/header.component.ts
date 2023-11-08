@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Output() displayedComponent = new EventEmitter<string>()
   collapsed = true;
 
-  onSelect(component){
-    this.displayedComponent.emit(component)
-  }
+  constructor(private router: Router){}
+
+  
 }
