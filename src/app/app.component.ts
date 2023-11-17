@@ -9,10 +9,4 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  displayingComponent: string = 'recipes'
-  
-  displayedComponent(component: string){
-    this.displayingComponent = component
-  }
-
 }

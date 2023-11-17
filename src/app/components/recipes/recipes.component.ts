@@ -8,11 +8,6 @@ import { RecipeService } from './recipe.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent {
-  selectedRecipe: Recipe
-  constructor(private recipeService: RecipeService){
-     this.recipeService.recipeSelected.subscribe(
-        recipe => this.selectedRecipe = recipe
-     )
-  }
+
   
 }
