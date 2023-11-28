@@ -12,12 +12,18 @@ export class ShoppingListComponent implements OnDestroy{
   ingredients: Ingredient[]
   private subscription: Subscription
 
+
   constructor(private shoppingListService: ShoppingListService) {
     this.ingredients = this.shoppingListService.getIngredients()
     this.subscription = this.shoppingListService.addedIngredient.subscribe(
       ingredients => this.ingredients = ingredients
     )
   }
+
+  onEditItem(index: number){
+    this.shoppingListService.startedEditting.next(index)
+  } 
+
   ngOnDestroy() {
     this.subscription.unsubscribe()
   }
