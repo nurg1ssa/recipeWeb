@@ -27,7 +27,7 @@ export class RecipeService {
       [
         new Ingredient('Buns', 1),
         new Ingredient('Meat', 1),
-      ])
+      ]),
   ]
 
   constructor(private slService: ShoppingListService){
@@ -51,6 +51,12 @@ export class RecipeService {
     this.recipes[index] = recipe
     this.addedRecipes.next(this.recipes.slice())
   }
+
+  deleteRecipe(index: number){
+    this.recipes.splice(index, 1)
+    this.addedRecipes.next(this.recipes.slice())
+  }
+
 
   addIngredientsToShoppingList(ingredients: Ingredient[]){
     this.slService.addIngredients(ingredients)
