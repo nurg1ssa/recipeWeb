@@ -74,6 +74,10 @@ export class RecipeEditComponent {
     this.router.navigate(['../'], {relativeTo: this.route})
   }
 
+  onDeleteIngredient(index: number){
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index)
+  }
+
   onAddIngredients() {
     (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
       'name': new FormControl(null, Validators.required),
