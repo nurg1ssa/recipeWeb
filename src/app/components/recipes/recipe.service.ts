@@ -3,7 +3,6 @@ import { Recipe } from './recipes.model';
 import { Ingredient } from 'src/app/shared/inhredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class RecipeService {
@@ -24,13 +23,11 @@ export class RecipeService {
     ),
   ];
 
-  constructor(
-    private slService: ShoppingListService,
-    private http: HttpClient
-  ) {
-    // this.http.get('https://udemy-angular-59fa9-default-rtdb.firebaseio.com/').subscribe((recipes:Recipe[]) => {
-    //   this.recipes = recipes
-    // })
+  constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes
+    this.addedRecipes.next(this.recipes.slice())
   }
 
   getRecipes() {
