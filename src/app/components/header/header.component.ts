@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
@@ -16,6 +15,6 @@ export class HeaderComponent {
     this.dataStorageService.storeRecipes()
   }
   onFetchData(){
-    this.dataStorageService.fetchRecipes()
+    this.dataStorageService.fetchRecipes().subscribe()
   }
 }
