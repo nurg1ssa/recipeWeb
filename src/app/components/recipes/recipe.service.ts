@@ -8,20 +8,21 @@ import { Subject } from 'rxjs';
 export class RecipeService {
   addedRecipes = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Princess Kiss Cake',
-      'Good recipe for little girls parties',
-      'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
-      [new Ingredient('Strawberry', 5), new Ingredient('Sugar powder', 2)]
-    ),
-    new Recipe(
-      'Cheeseburger',
-      'Very delicious',
-      'https://upload.wikimedia.org/wikipedia/commons/4/43/Burger_King_Quad_Stacker_cheeseburger.jpg',
-      [new Ingredient('Buns', 1), new Ingredient('Meat', 1)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Princess Kiss Cake',
+  //     'Good recipe for little girls parties',
+  //     'https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg',
+  //     [new Ingredient('Strawberry', 5), new Ingredient('Sugar powder', 2)]
+  //   ),
+  //   new Recipe(
+  //     'Cheeseburger',
+  //     'Very delicious',
+  //     'https://upload.wikimedia.org/wikipedia/commons/4/43/Burger_King_Quad_Stacker_cheeseburger.jpg',
+  //     [new Ingredient('Buns', 1), new Ingredient('Meat', 1)]
+  //   ),
+  // ];
+  private recipes: Recipe[] = []
 
   constructor(private slService: ShoppingListService) {}
 
