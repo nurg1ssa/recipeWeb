@@ -8,6 +8,8 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent {
   isLoginMode = true;
+  isLoading = false;
+  error: string = null;
 
   constructor(private authService: AuthService) {}
 
@@ -16,6 +18,7 @@ export class AuthComponent {
   }
 
   onSubmit(form: NgForm) {
+    this.isLoading = true;
     if (form.invalid) {
       return;
     }
@@ -28,9 +31,12 @@ export class AuthComponent {
       this.authService.signUp(email, password).subscribe(
         (resData) => {
           console.log(resData);
+          this.isLoading = false;
         },
         (error) => {
           console.log(error);
+          this.error = 'An error occured!'
+          this.isLoading = false;
         }
       );
     }
